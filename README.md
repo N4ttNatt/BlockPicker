@@ -5,3 +5,8 @@ To-add functions:
 - Automatic block pallete creation
 - Block pallete customization options
 - Decorative blocks fix
+
+Color picker API used: https://iro.js.org/colorPicker_api.html \
+Block translation into hex code API used: https://lokeshdhakar.com/projects/color-thief/#v3-api
+
+Tools utilized: HTML, CSS, JavaScript and NodeJS
