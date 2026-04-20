@@ -8,8 +8,8 @@ body {
     display: flex;
     justify-content: left;
     padding: 5vh;
-    margin-left: 40px;
-    margin-right: 700px;
+    margin-left: 10px;
+    margin-right: 100px;
     align-items: center;
     border: 2px solid #fff;
     border-radius: 20px;
@@ -42,4 +42,56 @@ body {
     border: 1px solid #333;
     image-rendering: pixelated;
     background-color: #333;
+}
+
+.start {
+    min-height:40vh;
+    display: flex;
+    justify-content: left;
+    padding: 5vh;
+    margin-left: 10px;
+    margin-right: 10px;
+    align-items: center;
+    border: 2px solid #fff;
+    border-radius: 20px;
+}
+
+.paleta {
+    background-color: gainsboro;
+    border-radius: 20px;
+    min-height: 15vh;
+    min-width: 72vh;
+    align-items: center;
+    display: flex;
+}
+
+.gridbox {
+    align-items: center;
+    display: flex;
+    margin-left: 15px;
+}
+
+.box {
+    min-height: 10vh;
+    min-width: 10vh;
+    background-color: #8B8B8B;
+    margin-right: 10px;
+    border: 3px solid #373737;
+    border-top-color: #FFF;
+    border-left-color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.box img {
+    pointer-events: none;
+    display: block;
+}
+
+.imgPreview:hover {
+    cursor: copy;
+    filter: brightness(1.2);
 }

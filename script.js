@@ -2,6 +2,8 @@ let colorIndicator = document.getElementById('color-indicator');
 let nomeBlocoTxt = document.getElementById('nome-bloco');
 let listaBlocos = [];
 
+const imgPreview = document.getElementById('bloco-img');
+
 fetch('cores_blocos.json')
     .then(response => response.json())
     .then(data => {
@@ -44,8 +46,46 @@ colorPicker.on('color:change', function(color) {
 
         if (result) {
             console.log("Closest block: ", result.bloco);
-            let imgPreview = document.getElementById('bloco-img');
             imgPreview.src = `blocks/${result.bloco}.png`;
         }
     }
 });
+
+function setupPalette() {
+    const boxes = document.querySelectorAll('.box');
+    if (!boxes || boxes.length === 0) {
+        console.error("Could not find any elements with class 'box'");
+        return;
+    }
+    
+    imgPreview.addEventListener('click', () => {
+        const currentSrc = imgPreview.getAttribute('src');
+
+        if (!currentSrc || currentSrc === "") { console.log("No block selected yet!"); return; }
+
+        let added = false;
+        for (let box of boxes) {
+            if (box.children.length === 0) {
+                const newImg = document.createElement('img');
+                newImg.src = currentSrc;
+
+                newImg.style.width = "100%";
+                newImg.style.imageRendering = "pixelated";
+
+                box.onclick = () => { box.innerHTML = ""; };
+
+                box.appendChild(newImg);
+                added = true;
+                break;
+            }
+        }
+
+        if (!added) {
+            console.log("Pallete is full!");
+        }
+
+    });
+
+}
+
+document.addEventListener('DOMContentLoaded', setupPalette);
